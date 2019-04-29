@@ -2,7 +2,6 @@ import React from 'react';
 import { FlatList, ActivityIndicator, Text, View, StyleSheet, TouchableOpacity, Image, ToastAndroid  } from 'react-native';
 
 
-
 export default class LocationsHome extends React.Component {
 
   constructor(props){
@@ -42,8 +41,8 @@ export default class LocationsHome extends React.Component {
     renderItem=(data)=>
 
         <TouchableOpacity style={{ flex: 1, flexDirection: 'row', marginBottom: 3}}
-          
-          onPress={()=>ToastAndroid.show(data.item.name, ToastAndroid.SHORT)}> 
+          id={data.id}
+          onPress={()=>this.props.navigation.navigate('Detail', { detail: data.item})}> 
 
           <Image style={styles.imageView} source = {{uri: `data:image/png;base64, ${data.item.picture}`}} />
           <View style={{flex: 1, justifyContent: 'center' }}>
