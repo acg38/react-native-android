@@ -16,7 +16,7 @@ export default class Locations extends React.Component {
   componentDidMount(){
     // fetch("https://jsonplaceholder.typicode.com/users")
     fetch("http://192.168.2.143:8000/locations/")
-    //fetch("http://192.168.2.143:8000/locations/") LOKALE ADRESSE ÄNDERN
+    //fetch("http://192.168.2.143:8000/locations/") LOKALE ADRESSE ÄNDERN 
     .then(response => response.json())
     .then((responseJson)=> {
       this.setState({
