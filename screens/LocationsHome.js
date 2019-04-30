@@ -42,13 +42,19 @@ export default class LocationsHome extends React.Component {
 
         <TouchableOpacity style={{ flex: 1, flexDirection: 'row', marginBottom: 3}}
           id={data.id}
-          onPress={()=>this.props.navigation.navigate('Detail', { detail: data.item})}> 
+          onPress={()=>this.props.navigation.navigate('Detail', { 
+            name: data.item.name,
+            address: data.item.address,
+            phone_number: data.item.details.phone_number,
+            picture: data.item.picture,
+            website: data.item.details.website,
+            description: data.item.details.description})}> 
 
           <Image style={styles.imageView} source = {{uri: `data:image/png;base64, ${data.item.picture}`}} />
           <View style={{flex: 1, justifyContent: 'center' }}>
               <Text style={styles.header}>{data.item.name}</Text>
               <Text style={styles.subheader}>{data.item.address}</Text>
-              <Text style={styles.phone_number}>{data.item.phone_number}</Text>
+              <Text style={styles.phone_number}>{data.item.details.phone_number}</Text>
           </View>
         </TouchableOpacity>
         
@@ -101,7 +107,7 @@ const styles = StyleSheet.create({
    },
   header:{
     fontSize: 24,
-    color: 'green',
+    color: 'red',
     marginBottom: 10,
     marginTop: 10,
     marginRight: 10
