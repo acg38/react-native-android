@@ -13,13 +13,12 @@ export default class LocationsHome extends React.Component {
     const website = navigation.getParam('website', 'Default Value');
     const description = navigation.getParam('description', 'Default Value');
 
-    
     return(
       <View style={styles.container}>
         <View>
           <Image style={styles.imageView} source = {{uri: `data:image/png;base64, ${picture}`}} />
         </View>
-          <Text>Name: {name}</Text>
+          <Text style={styles.title}>{name}</Text>
           <Text>Address: {address}</Text>
           <Text>Tel: {phone_number}</Text>
           <Text>Dienstleistungen: {description}</Text>
@@ -41,13 +40,15 @@ const styles = StyleSheet.create({
     width: 300,
     height: 200 ,
     borderRadius : 400/2,
-    margin: 5
-  },
-  phone_number:{
-    fontSize: 16,
-    color: 'gray',
     margin: 5,
-    marginRight: 10
-  }
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  title: {
+    fontSize: 25,
+    fontWeight: 'bold',
+    color: 'red',
+  },
+
 });
 

@@ -13,8 +13,8 @@ export default class LocationsHome extends React.Component {
   }
 
   componentDidMount(){
-    fetch("http://192.168.2.143:8000/locations/")
-    //fetch("http://192.168.2.143:8000/locations/") LOKALE ADRESSE ÄNDERN 
+    // fetch("http://192.168.2.143:8000/locations/")
+    fetch("http://192.168.178.108:8000/locations/")
     .then(response => response.json())
     .then((responseJson)=> {
       this.setState({
@@ -49,6 +49,7 @@ export default class LocationsHome extends React.Component {
             picture: data.item.picture,
             website: data.item.details.website,
             description: data.item.details.description})}> 
+            
 
           <Image style={styles.imageView} source = {{uri: `data:image/png;base64, ${data.item.picture}`}} />
           <View style={{flex: 1, justifyContent: 'center' }}>
